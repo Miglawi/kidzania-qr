@@ -2,7 +2,7 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
-  <title>Leitor de QR Code</title>
+  <title>Leitor QR Code</title>
   <style>
     body {
       background-color: #f5f5f5;
@@ -38,7 +38,7 @@
 
   <div class="logos">
     <img src="KidZania-Symbol.png" alt="KidZania">
-    <img src="png-clipart-santander-group-santander-bank-logo-quiz-ultimate-bank-text-hand-thumbnail.png" alt="Santander">
+    <img src="Santander.png" alt="Santander">
   </div>
 
   <h1>Passe o QR Code no scanner</h1>
@@ -48,10 +48,8 @@
   <script>
     const input = document.getElementById('qrcode');
 
-    // Mantém o foco forçado no input
     setInterval(() => input.focus(), 500);
 
-    // Escuta mudanças no campo
     input.addEventListener('input', () => {
       const url = input.value.trim();
       if (url.startsWith('http')) {
@@ -59,7 +57,6 @@
       }
     });
 
-    // Escuta Enter (caso o scanner envie Enter no fim)
     input.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') {
         const url = input.value.trim();
