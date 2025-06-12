@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Login QR - KidZania & Santander</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      margin-bottom: 30px;
+    }
+
+    .logos img {
+      max-height: 100px;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      padding: 15px;
+      font-size: 20px;
+      width: 80%;
+      max-width: 400px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .qr-instruction {
+      font-size: 18px;
+      margin-top: 20px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logos">
+    <img src="KidZania-Symbol.png" alt="KidZania Logo">
+    <img src="png-clipart-santander-group-santander-bank-logo-quiz-ultimate-bank-text-hand-thumbnail.png" alt="Santander Logo">
+  </div>
+
+  <h1>Bem-vindo à experiência KidZania & Santander</h1>
+  <p class="qr-instruction">Por favor, leia o seu código QR com o scanner.</p>
+
+  <input type="text" id="qrcode" placeholder="À espera do QR Code..." autofocus readonly>
+
+</body>
+</html>
