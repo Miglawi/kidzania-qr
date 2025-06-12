@@ -2,84 +2,68 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
-  <title>Login QR - KidZania & Santander</title>
+  <title>Leitor de QR Code</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
-      margin: 0;
-      padding: 20px;
+      background-color: #f5f5f5;
+      font-family: sans-serif;
       text-align: center;
+      padding: 40px;
     }
 
     .logos {
       display: flex;
       justify-content: center;
-      align-items: center;
-      gap: 40px;
+      gap: 30px;
       margin-bottom: 30px;
     }
 
     .logos img {
-      max-height: 100px;
+      height: 80px;
     }
 
     h1 {
-      color: #333;
       font-size: 24px;
-      margin-bottom: 15px;
+      color: #333;
     }
 
-    .qr-instruction {
-      font-size: 20px;
-      margin-bottom: 30px;
-      color: #555;
-    }
-
-    input[type="text"] {
-      padding: 15px;
-      font-size: 18px;
-      width: 80%;
-      max-width: 400px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      opacity: 0;
+    input#qrcode {
       position: absolute;
       top: -9999px;
+      opacity: 0;
     }
   </style>
 </head>
 <body>
 
   <div class="logos">
-    <img src="KidZania-Symbol.png" alt="Logo KidZania">
-    <img src="png-clipart-santander-group-santander-bank-logo-quiz-ultimate-bank-text-hand-thumbnail.png" alt="Logo Santander">
+    <img src="KidZania-Symbol.png" alt="KidZania">
+    <img src="png-clipart-santander-group-santander-bank-logo-quiz-ultimate-bank-text-hand-thumbnail.png" alt="Santander">
   </div>
 
-  <h1>Bem-vindo</h1>
-  <p class="qr-instruction">Passe o QR Code no scanner</p>
+  <h1>Passe o QR Code no scanner</h1>
 
   <input type="text" id="qrcode" autofocus>
 
   <script>
     const input = document.getElementById('qrcode');
 
-    // Foca no input
-    input.focus();
+    // Mantém o foco forçado no input
+    setInterval(() => input.focus(), 500);
 
-    // Quando o scanner ler o código
-    input.addEventListener('input', function () {
+    // Escuta mudanças no campo
+    input.addEventListener('input', () => {
       const url = input.value.trim();
-      if (url.startsWith("http")) {
+      if (url.startsWith('http')) {
         window.location.href = url;
       }
     });
 
-    // No caso de scanners que usam Enter
-    input.addEventListener('keypress', function (e) {
+    // Escuta Enter (caso o scanner envie Enter no fim)
+    input.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') {
         const url = input.value.trim();
-        if (url.startsWith("http")) {
+        if (url.startsWith('http')) {
           window.location.href = url;
         }
       }
